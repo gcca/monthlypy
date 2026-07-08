@@ -21,6 +21,13 @@ pub fn build(b: *std.Build) void {
         }),
     });
 
+    exe.root_module.addIncludePath(b.path("3rdparty"));
+    exe.root_module.addCSourceFile(.{
+        .file = b.path("src/fio_cstl.c"),
+        .flags = &.{"-std=c17"},
+    });
+    exe.root_module.link_libc = true;
+
     b.installArtifact(exe);
 
     const run_step = b.step("run", "Run the app");
