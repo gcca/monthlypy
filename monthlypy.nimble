@@ -3,8 +3,8 @@ author      = "gcca"
 description = "Monthly Python web app"
 license     = "AGPL-3.0-or-later"
 
-srcDIr = "src"
-bin = @["server"]
+srcDir = "src"
+bin    = @["monthlypy"]
 
 requires "nim >= 2.0.0"
 requires "jester >= 0.6.0"
