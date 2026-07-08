@@ -1,5 +1,5 @@
 import jester
 
-router app:
+routes:
   get "/monthlypy/healthcheck":
     resp "🍻"
