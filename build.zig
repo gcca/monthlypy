@@ -23,8 +23,8 @@ pub fn build(b: *std.Build) void {
 
     exe.root_module.addIncludePath(b.path("3rdparty"));
     exe.root_module.addCSourceFile(.{
-        .file = b.path("src/fio_cstl.c"),
-        .flags = &.{"-std=c17"},
+        .file = b.path("3rdparty/fio-stl.cc"),
+        .flags = &.{"-std=c++23"},
     });
     exe.root_module.link_libc = true;
 

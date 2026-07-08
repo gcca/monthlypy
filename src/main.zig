@@ -1,9 +1,7 @@
 const std = @import("std");
 const Io = std.Io;
 
-const fio = @cImport({
-    @cInclude("fio-stl.h");
-});
+const fio = @import("fio");
 
 pub fn main(init: std.process.Init) !void {
     const arena: std.mem.Allocator = init.arena.allocator();
@@ -12,4 +10,6 @@ pub fn main(init: std.process.Init) !void {
     for (args) |arg| {
         std.log.info("arg: {s}", .{arg});
     }
+
+    std.log.info("VERSION: {s}", .{fio.ShowVersion()});
 }
