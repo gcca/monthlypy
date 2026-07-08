@@ -21,13 +21,6 @@ pub fn build(b: *std.Build) void {
         }),
     });
 
-    const zap = b.dependency("zap", .{
-        .target = target,
-        .optimize = optimize,
-        .openssl = false,
-    });
-    exe.root_module.addImport("zap", zap.module("zap"));
-
     b.installArtifact(exe);
 
     const run_step = b.step("run", "Run the app");
