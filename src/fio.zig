@@ -1,7 +1,7 @@
-const fio_ = @cImport({
-    @cInclude("fio-stl.h");
-});
+const std = @import("std");
 
-pub fn ShowVersion() {
-    return "sadf"
+extern fn monthlypy_fio_version() [*:0]const u8;
+
+pub fn ShowVersion() [:0]const u8 {
+    return std.mem.span(monthlypy_fio_version());
 }

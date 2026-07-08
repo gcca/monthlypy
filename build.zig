@@ -8,6 +8,11 @@ pub fn build(b: *std.Build) void {
         .root_source_file = b.path("src/root.zig"),
         .target = target,
     });
+    const fio = b.createModule(.{
+        .root_source_file = b.path("src/fio.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
 
     const exe = b.addExecutable(.{
         .name = "monthlypy",
@@ -17,6 +22,7 @@ pub fn build(b: *std.Build) void {
             .optimize = optimize,
             .imports = &.{
                 .{ .name = "monthlypy", .module = mod },
+                .{ .name = "fio", .module = fio },
             },
         }),
     });
